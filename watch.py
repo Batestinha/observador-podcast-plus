@@ -246,8 +246,41 @@ def fetch_feed(url: str, cache: dict | None) -> dict:
 
 # --------------------------------------------------------------------------- merge + render
 
-def merge(series: list[dict], feeds: dict[str, dict]) -> list[dict]:
-    """Combined items, newest first, without cross-posts of other Plus series."""
+EXTRA_TYPES = {"trailer", "bonus"}
+EXTRA_TITLE = re.compile(r"^(trailer|extra|bonus)\b")
+EXTRA_MAX_SECONDS = 15 * 60
+
+
+def parse_duration(value) -> int:
+    """itunes:duration as seconds ("2295", "38:15", "1:02:03"); 0 when unknown."""
+    secs = 0.0
+    try:
+        for part in str(value or "").strip().split(":"):
+            secs = secs * 60 + float(part)
+    except ValueError:
+        return 0
+    return int(secs)
+
+
+def is_extra(item: dict) -> bool:
+    """Trailers, bonus items and short extras such as soundtrack pieces.
+
+    Observador marks trailers and some extras with itunes:episodeType, but its
+    soundtrack pieces are often typed "full": those are short and their titles
+    never say "Episódio". "Episódio especial" (a full-length episode) stays.
+    """
+    if (item.get("episodeType") or "").lower() in EXTRA_TYPES:
+        return True
+    title = norm(item["title"])
+    if EXTRA_TITLE.search(title):
+        return True
+    secs = parse_duration(item.get("duration"))
+    return "episodio" not in title and 0 < secs < EXTRA_MAX_SECONDS
+
+
+def merge(series: list[dict], feeds: dict[str, dict], keep_extras: bool = False) -> list[dict]:
+    """Combined items, newest first, without cross-posts of other Plus series
+    and (unless keep_extras) without trailers and extras."""
     names = {s["id"]: norm(s["name"]) for s in series}
     seen_guid, seen_audio, merged = set(), set(), []
     for s in series:
@@ -257,6 +290,8 @@ def merge(series: list[dict], feeds: dict[str, dict]) -> list[dict]:
             title = norm(it["title"])
             if any(o in title for o in others):
                 continue  # promo copy of another series' episode
+            if not keep_extras and is_extra(it):
+                continue
             audio = it["enclosure"]["url"].split("?")[0]
             if it["guid"] in seen_guid or audio in seen_audio:
                 continue
@@ -386,7 +421,7 @@ def run(state: dict, cache: dict, programs: list[dict], site_slugs: list[str] | 
         except (FetchError, ET.ParseError, ValueError) as exc:
             errors.append(f"{s['name']}: {exc}")
             print(f"::warning::feed failed, keeping cached items: {s['name']}: {exc}")
-    items = merge(series, cache)
+    items = merge(series, cache, keep_extras=bool(state.get("keep_extras")))
     xml = render_rss(items, series, cache)
     return {"series": series, "new": new, "first_run": first_run, "errors": errors,
             "items": items, "xml": xml, "sha256": hashlib.sha256(xml.encode()).hexdigest()}

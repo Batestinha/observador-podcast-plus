@@ -74,16 +74,23 @@ class Merge(unittest.TestCase):
         report, _ = run({})
         titles = [it["title"] for it in report["items"]]
         esc = [it for it in report["items"] if it["series"].startswith("Os Escândalos")]
-        self.assertEqual(len(esc), 8)  # 12 in the feed minus 4 Sombras promo copies
+        # 12 in the feed: 4 Sombras promo copies, a trailer and a soundtrack bonus go
+        self.assertEqual(len(esc), 6)
         self.assertFalse(any("Duarte Lima" in it["title"] for it in esc))
+        self.assertTrue(all(it["title"].startswith("Episódio") for it in esc))
         self.assertEqual(sum(1 for it in report["items"] if it["series"] == "As Sombras de Duarte Lima"), 5)
-        self.assertEqual(len(titles), 13)
+        self.assertEqual(len(titles), 11)
+
+    def test_keep_extras_switch(self):
+        report, _ = run({"keep_extras": True})
+        self.assertEqual(len(report["items"]), 13)
+        self.assertTrue(any(it["episodeType"] == "trailer" for it in report["items"]))
 
     def test_rss_is_valid_and_ordered(self):
         report, _ = run({})
         root = ET.fromstring(report["xml"])
         items = root.findall("channel/item")
-        self.assertEqual(len(items), 13)
+        self.assertEqual(len(items), 11)
         self.assertEqual(items[0].findtext("title"),
                          "As Sombras de Duarte Lima — Episódio 5. Um informador chamado Apache")
         stamps = [watch.pub_ts(i.findtext("pubDate")) for i in items]
@@ -119,9 +126,15 @@ class Detection(unittest.TestCase):
                                    "RssFeedUrl": "https://example.invalid/new/podcast.rss"}
         programs.append(fake)
         new_feed = (b'<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">'
-                    b'<channel><title>O Caso Novo</title><item><title>Trailer</title>'
-                    b'<guid>new-1</guid><pubDate>Thu, 26 Nov 2026 10:00:00 +0000</pubDate>'
+                    b'<channel><title>O Caso Novo</title>'
+                    b'<item><title>Epis\xc3\xb3dio 1. O come\xc3\xa7o</title>'
+                    b'<guid>new-1</guid><pubDate>Thu, 03 Dec 2026 10:00:00 +0000</pubDate>'
+                    b'<itunes:duration>2400</itunes:duration>'
                     b'<enclosure url="https://example.invalid/new/1.mp3" length="1" type="audio/mpeg"/>'
+                    b'</item><item><title>Trailer "O Caso Novo"</title><guid>new-0</guid>'
+                    b'<pubDate>Thu, 26 Nov 2026 10:00:00 +0000</pubDate>'
+                    b'<itunes:episodeType>trailer</itunes:episodeType>'
+                    b'<enclosure url="https://example.invalid/new/0.mp3" length="1" type="audio/mpeg"/>'
                     b'</item></channel></rss>')
 
         def fetch(url, cache):
@@ -134,8 +147,9 @@ class Detection(unittest.TestCase):
         self.assertEqual(report["new"], ["O Caso Novo"])
         entry = state["series"][fake["Id"]]
         self.assertEqual((entry["first_seen"], entry["seeded"]), ("2026-11-26", False))
-        self.assertEqual(report["items"][0]["title"], "Trailer")
+        self.assertEqual(report["items"][0]["title"], "Episódio 1. O começo")
         self.assertEqual(report["items"][0]["series"], "O Caso Novo")
+        self.assertNotIn("new-0", {it["guid"] for it in report["items"]})  # its trailer
 
     def test_site_section_missing_keeps_known_series(self):
         state = {}
@@ -169,6 +183,35 @@ class Detection(unittest.TestCase):
                             "2026-11-20", fetch=failing, playlist_lookup=no_playlist)
         self.assertEqual(len(report2["errors"]), 1)
         self.assertEqual(report2["sha256"], report["sha256"])
+
+
+class Extras(unittest.TestCase):
+    # Real titles from the feeds on 2026-11-19 (episodeType, seconds).
+    CASES = [
+        ("trailer", 240, 'Trailer "Matar o Papa". Estreia a 13 de maio', True),
+        ("trailer", 60, "O regresso de “A Caça ao Estripador de Lisboa”", True),
+        ("bonus", 180, 'A música de Frankie Chavez para "Os Escândalos de uma Revolucionária"', True),
+        ("full", 120, 'Extra. A música dos Linda Martini para "1983: Portugal à Queima-Roupa"', True),
+        ("full", 120, 'A música dos HMB para "O Misterioso Engenheiro Jardim"', True),
+        ("full", 360, 'O piano de Júlio Resende em "Os Ficheiros do Caso Carlos Castro"', True),
+        ("full", 2820, "Episódio especial: Porque é que o Estripador de Lisboa nunca foi apanhado?", False),
+        ("full", 2040, 'Estreia. "A Caça ao Estripador de Lisboa". Episódio 1: Foi a última vez que a viu', False),
+        ("full", 2295, "Episódio 5. Um informador chamado Apache", False),
+        ("", 0, "Um título sem duração", False),
+    ]
+
+    def test_real_titles(self):
+        for etype, secs, title, extra in self.CASES:
+            with self.subTest(title=title):
+                item = {"episodeType": etype, "duration": str(secs), "title": title}
+                self.assertEqual(watch.is_extra(item), extra)
+
+    def test_parse_duration(self):
+        self.assertEqual(watch.parse_duration("2295"), 2295)
+        self.assertEqual(watch.parse_duration("38:15"), 2295)
+        self.assertEqual(watch.parse_duration("1:02:03"), 3723)
+        self.assertEqual(watch.parse_duration(""), 0)
+        self.assertEqual(watch.parse_duration("n/a"), 0)
 
 
 class Text(unittest.TestCase):

@@ -406,6 +406,9 @@ def main(argv=None) -> int:
     site_slugs = fetch_site_plus_slugs()
     today = dt.datetime.now(dt.timezone.utc).date().isoformat()
     report = run(state, cache, programs, site_slugs, today)
+    # Changes monthly, so the state commit keeps the public repo "active" and
+    # GitHub never disables the schedule (60 days without activity).
+    state["checked_month"] = today[:7]
 
     if args.out:
         args.out.write_text(report["xml"])

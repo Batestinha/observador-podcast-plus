@@ -34,6 +34,10 @@ different Plus series are dropped, so every episode appears once, under its own 
 
 Detection shows up as a commit "New Podcast Plus series: …".
 
+The repo is public because GitHub only runs Actions in public repos on this account. Nothing in it
+is secret: the gist id and token are Actions secrets. `checked_month` in the state changes every
+month, and that commit stops GitHub from disabling the schedule after 60 days without activity.
+
 ## Failures (GitHub emails you on a failed scheduled run)
 
 - Omny unreachable or empty: the run fails.

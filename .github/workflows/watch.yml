@@ -1,0 +1,43 @@
+name: watch
+
+on:
+  schedule:
+    - cron: "23 6,18 * * *"   # twice a day, UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests
+
+      - name: Check Observador and publish the combined feed
+        id: watch
+        env:
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+        run: python3 watch.py
+
+      - name: Commit state
+        if: always()
+        env:
+          NEW_SERIES: ${{ steps.watch.outputs.new_series }}
+        run: |
+          git add state
+          if git diff --cached --quiet; then echo "state unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$NEW_SERIES" ]; then msg="New Podcast Plus series: $NEW_SERIES"; else msg="Update state"; fi
+          git commit -q -m "$msg"
+          git push -q

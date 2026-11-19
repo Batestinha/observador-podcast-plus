@@ -246,8 +246,7 @@ def fetch_feed(url: str, cache: dict | None) -> dict:
 
 # --------------------------------------------------------------------------- merge + render
 
-EXTRA_TYPES = {"trailer", "bonus"}
-EXTRA_TITLE = re.compile(r"^(trailer|extra|bonus)\b")
+EXTRA_TITLE = re.compile(r"^(extra|bonus)\b")
 EXTRA_MAX_SECONDS = 15 * 60
 
 
@@ -262,14 +261,21 @@ def parse_duration(value) -> int:
     return int(secs)
 
 
-def is_extra(item: dict) -> bool:
-    """Trailers, bonus items and short extras such as soundtrack pieces.
+def is_trailer(item: dict) -> bool:
+    return ((item.get("episodeType") or "").lower() == "trailer"
+            or norm(item["title"]).startswith("trailer"))
 
-    Observador marks trailers and some extras with itunes:episodeType, but its
+
+def is_extra(item: dict) -> bool:
+    """Bonus items and short extras such as soundtrack pieces; trailers stay.
+
+    Observador marks some extras with itunes:episodeType "bonus", but its
     soundtrack pieces are often typed "full": those are short and their titles
     never say "Episódio". "Episódio especial" (a full-length episode) stays.
     """
-    if (item.get("episodeType") or "").lower() in EXTRA_TYPES:
+    if is_trailer(item):
+        return False
+    if (item.get("episodeType") or "").lower() == "bonus":
         return True
     title = norm(item["title"])
     if EXTRA_TITLE.search(title):
@@ -280,7 +286,7 @@ def is_extra(item: dict) -> bool:
 
 def merge(series: list[dict], feeds: dict[str, dict], keep_extras: bool = False) -> list[dict]:
     """Combined items, newest first, without cross-posts of other Plus series
-    and (unless keep_extras) without trailers and extras."""
+    and (unless keep_extras) without bonus items and soundtrack extras."""
     names = {s["id"]: norm(s["name"]) for s in series}
     seen_guid, seen_audio, merged = set(), set(), []
     for s in series:

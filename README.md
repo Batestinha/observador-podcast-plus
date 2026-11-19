@@ -23,11 +23,10 @@ Observador pushes each new episode into the older Plus feeds as a promo copy
 ("Episódio 5 … | As Sombras de Duarte Lima", "Antestreia …"). Items whose title names a
 different Plus series are dropped, so every episode appears once, under its own series.
 
-Trailers and extras are left out too: items Observador types as `trailer` or `bonus`, titles
-starting with Trailer/Extra/Bonus, and short (<15 min) items whose title doesn't say "Episódio"
-(the soundtrack pieces, which Observador types as full episodes). "Episódio especial" stays.
-A new series therefore appears in the feed with its first episode, not its trailer; the
-"New Podcast Plus series" commit still happens when the trailer lands. To get extras back, set
+Bonus items and extras are left out: items Observador types as `bonus`, titles starting with
+Extra/Bonus, and short (<15 min) items whose title doesn't say "Episódio" (the soundtrack pieces,
+which Observador types as full episodes). Trailers stay, so a new series appears in the feed with
+its trailer. "Episódio especial" stays. To get the extras back, set
 `"keep_extras": true` in `state/series.json`.
 
 ## Files

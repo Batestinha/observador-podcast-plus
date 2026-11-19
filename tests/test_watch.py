@@ -74,23 +74,24 @@ class Merge(unittest.TestCase):
         report, _ = run({})
         titles = [it["title"] for it in report["items"]]
         esc = [it for it in report["items"] if it["series"].startswith("Os Escândalos")]
-        # 12 in the feed: 4 Sombras promo copies, a trailer and a soundtrack bonus go
-        self.assertEqual(len(esc), 6)
+        # 12 in the feed: 4 Sombras promo copies and a soundtrack bonus go, the trailer stays
+        self.assertEqual(len(esc), 7)
         self.assertFalse(any("Duarte Lima" in it["title"] for it in esc))
-        self.assertTrue(all(it["title"].startswith("Episódio") for it in esc))
+        self.assertEqual([it["title"] for it in esc if not it["title"].startswith("Episódio")],
+                         ['Trailer "Os Escândalos de uma Revolucionária". Estreia a 15 de setembro'])
         self.assertEqual(sum(1 for it in report["items"] if it["series"] == "As Sombras de Duarte Lima"), 5)
-        self.assertEqual(len(titles), 11)
+        self.assertEqual(len(titles), 12)
 
     def test_keep_extras_switch(self):
         report, _ = run({"keep_extras": True})
         self.assertEqual(len(report["items"]), 13)
-        self.assertTrue(any(it["episodeType"] == "trailer" for it in report["items"]))
+        self.assertTrue(any(it["episodeType"] == "bonus" for it in report["items"]))
 
     def test_rss_is_valid_and_ordered(self):
         report, _ = run({})
         root = ET.fromstring(report["xml"])
         items = root.findall("channel/item")
-        self.assertEqual(len(items), 11)
+        self.assertEqual(len(items), 12)
         self.assertEqual(items[0].findtext("title"),
                          "As Sombras de Duarte Lima — Episódio 5. Um informador chamado Apache")
         stamps = [watch.pub_ts(i.findtext("pubDate")) for i in items]
@@ -149,7 +150,7 @@ class Detection(unittest.TestCase):
         self.assertEqual((entry["first_seen"], entry["seeded"]), ("2026-11-26", False))
         self.assertEqual(report["items"][0]["title"], "Episódio 1. O começo")
         self.assertEqual(report["items"][0]["series"], "O Caso Novo")
-        self.assertNotIn("new-0", {it["guid"] for it in report["items"]})  # its trailer
+        self.assertIn("new-0", {it["guid"] for it in report["items"]})  # its trailer
 
     def test_site_section_missing_keeps_known_series(self):
         state = {}
@@ -188,8 +189,9 @@ class Detection(unittest.TestCase):
 class Extras(unittest.TestCase):
     # Real titles from the feeds on 2026-11-19 (episodeType, seconds).
     CASES = [
-        ("trailer", 240, 'Trailer "Matar o Papa". Estreia a 13 de maio', True),
-        ("trailer", 60, "O regresso de “A Caça ao Estripador de Lisboa”", True),
+        ("trailer", 240, 'Trailer "Matar o Papa". Estreia a 13 de maio', False),
+        ("trailer", 60, "O regresso de “A Caça ao Estripador de Lisboa”", False),
+        ("full", 200, "Trailer: “A Caça ao Estripador de Lisboa”. Estreia a 17 de dezembro", False),
         ("bonus", 180, 'A música de Frankie Chavez para "Os Escândalos de uma Revolucionária"', True),
         ("full", 120, 'Extra. A música dos Linda Martini para "1983: Portugal à Queima-Roupa"', True),
         ("full", 120, 'A música dos HMB para "O Misterioso Engenheiro Jardim"', True),

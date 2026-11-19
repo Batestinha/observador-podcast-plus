@@ -1,0 +1,221 @@
+{
+ "checked_month": "2026-11",
+ "excluded_slugs": [],
+ "feed_sha256": "1623c0da05173cc18633627b5282f7ee52fe35730ab6c10bd7c874c36c987033",
+ "series": {
+  "049306ea-9b83-480a-bdac-b1f3006f4438": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/049306ea-9b83-480a-bdac-b1f3006f4438/ba451e2c-1e7d-4017-a90d-b1f300730ad7/image.jpg?t=1726988332&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/049306ea-9b83-480a-bdac-b1f3006f4438/ba451e2c-1e7d-4017-a90d-b1f300730ad7/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "049306ea-9b83-480a-bdac-b1f3006f4438",
+   "name": "A Grande Provocadora",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "a-grande-provocadora"
+  },
+  "1ad8941d-d664-4963-a500-b4be01188421": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/1ad8941d-d664-4963-a500-b4be01188421/a589ba4b-0151-4e80-b3e5-b4be01188877/image.jpg?t=1788800486&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/1ad8941d-d664-4963-a500-b4be01188421/a589ba4b-0151-4e80-b3e5-b4be01188877/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "1ad8941d-d664-4963-a500-b4be01188421",
+   "name": "Os Escândalos de uma Revolucionária",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "os-escndalos-de-uma-revolucionria"
+  },
+  "20982591-91a3-4938-9b73-b41d009c4824": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/20982591-91a3-4938-9b73-b41d009c4824/425e273e-46f6-452b-a1ff-b41d009c4cac/image.jpg?t=1774862950&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/20982591-91a3-4938-9b73-b41d009c4824/425e273e-46f6-452b-a1ff-b41d009c4cac/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "20982591-91a3-4938-9b73-b41d009c4824",
+   "name": "Os Ficheiros do Caso Carlos Castro",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "os-ficheiros-do-caso-carlos-castro"
+  },
+  "276acf7f-bd1e-4eb7-a60d-b3d70099b8fa": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/276acf7f-bd1e-4eb7-a60d-b3d70099b8fa/8e2c0894-d2bf-483e-bbd8-b3d70099bd97/image.jpg?t=1768814386&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/276acf7f-bd1e-4eb7-a60d-b3d70099b8fa/8e2c0894-d2bf-483e-bbd8-b3d70099bd97/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "276acf7f-bd1e-4eb7-a60d-b3d70099b8fa",
+   "name": "Os Segredos da Seita do Yoga",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "os-segredos-da-seita-do-yoga"
+  },
+  "2a6d907b-b663-4ba3-9391-b0a10120034c": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/2a6d907b-b663-4ba3-9391-b0a10120034c/580574d7-4fd9-42e7-9eeb-b0a10132ae8c/image.jpg?t=1727436399&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/2a6d907b-b663-4ba3-9391-b0a10120034c/580574d7-4fd9-42e7-9eeb-b0a10132ae8c/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "2a6d907b-b663-4ba3-9391-b0a10120034c",
+   "name": "O Encantador de Ricos",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "o-encantador-de-ricos"
+  },
+  "37315e2e-36e1-4449-bf1a-b04b011a00bd": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/37315e2e-36e1-4449-bf1a-b04b011a00bd/2ee5dd8f-2ce9-4cbc-a892-b04b012c5875/image.jpg?t=1727436573&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/37315e2e-36e1-4449-bf1a-b04b011a00bd/2ee5dd8f-2ce9-4cbc-a892-b04b012c5875/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "37315e2e-36e1-4449-bf1a-b04b011a00bd",
+   "name": "Um Espião no Kremlin",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "um-espi-o-no-kremlin"
+  },
+  "3bdd284e-742b-4bba-a88c-b165010fc585": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/3bdd284e-742b-4bba-a88c-b165010fc585/94e902b5-4fc1-4e75-b5e2-b1650114a2d6/image.jpg?t=1727436252&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/3bdd284e-742b-4bba-a88c-b165010fc585/94e902b5-4fc1-4e75-b5e2-b1650114a2d6/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "3bdd284e-742b-4bba-a88c-b165010fc585",
+   "name": "Matar o Papa",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "matar-o-papa"
+  },
+  "4093b241-20e0-4025-8a00-afba013b2218": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/4093b241-20e0-4025-8a00-afba013b2218/b150e14d-4d2e-4c4e-9cf2-afba013f7a91/image.jpg?t=1727430173&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/4093b241-20e0-4025-8a00-afba013b2218/b150e14d-4d2e-4c4e-9cf2-afba013f7a91/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "4093b241-20e0-4025-8a00-afba013b2218",
+   "name": "O Sargento na Cela 7",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "o-sargento-na-cela-7"
+  },
+  "48e83e47-2f21-4352-8b5d-b48d0134f5a8": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/48e83e47-2f21-4352-8b5d-b48d0134f5a8/436a1aff-18db-4a4f-ace5-b48d0134fa43/image.jpg?t=1784573099&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/48e83e47-2f21-4352-8b5d-b48d0134f5a8/436a1aff-18db-4a4f-ace5-b48d0134fa43/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "48e83e47-2f21-4352-8b5d-b48d0134f5a8",
+   "name": "A Vida Dupla do Espião Traidor",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "a-vida-dupla-do-espio-traidor"
+  },
+  "72d5eab0-d6d0-408a-ac1f-b2400102dc20": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/72d5eab0-d6d0-408a-ac1f-b2400102dc20/57ccfe75-0fad-4b61-ad02-b2400102df29/image.jpg?t=1733672553&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/72d5eab0-d6d0-408a-ac1f-b2400102dc20/57ccfe75-0fad-4b61-ad02-b2400102df29/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "72d5eab0-d6d0-408a-ac1f-b2400102dc20",
+   "name": "A Caça ao Estripador de Lisboa",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "a-caa-ao-estripador-de-lisboa"
+  },
+  "83b87d39-f3cc-413c-a3d2-b35f017ccd35": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/83b87d39-f3cc-413c-a3d2-b35f017ccd35/ab282bfa-1923-46a3-a5ef-b35f017cd106/image.jpg?t=1758541087&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/83b87d39-f3cc-413c-a3d2-b35f017ccd35/ab282bfa-1923-46a3-a5ef-b35f017cd106/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "83b87d39-f3cc-413c-a3d2-b35f017ccd35",
+   "name": "A Eleição Mais Louca de Sempre",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "a-eleio-mais-louca-de-sempre"
+  },
+  "8e567d3e-2b4f-41ee-87b8-b4eb012088c9": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/8e567d3e-2b4f-41ee-87b8-b4eb012088c9/d65493ac-75d8-4bdc-8607-b4eb01208d01/image.jpg?t=1792690242&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/8e567d3e-2b4f-41ee-87b8-b4eb012088c9/d65493ac-75d8-4bdc-8607-b4eb01208d01/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "8e567d3e-2b4f-41ee-87b8-b4eb012088c9",
+   "name": "As Sombras de Duarte Lima",
+   "seeded": true,
+   "signals": [
+    "omny_text"
+   ],
+   "slug": "as-sombras-de-duarte-lima"
+  },
+  "b05e41a0-9fea-4a06-bbd8-b1b201372ff6": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/b05e41a0-9fea-4a06-bbd8-b1b201372ff6/39cd3024-614e-4b2d-a185-b1b20138a556/image.jpg?t=1721415499&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/b05e41a0-9fea-4a06-bbd8-b1b201372ff6/39cd3024-614e-4b2d-a185-b1b20138a556/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "b05e41a0-9fea-4a06-bbd8-b1b201372ff6",
+   "name": "Um Rei na Boca do Inferno",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "um-rei-na-boca-do-inferno"
+  },
+  "b49c178e-1ffb-4fe6-be1e-b31a00661012": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/b49c178e-1ffb-4fe6-be1e-b31a00661012/acb1837e-b675-4e7c-bafe-b31a006614fd/image.jpg?t=1752500967&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/b49c178e-1ffb-4fe6-be1e-b31a00661012/acb1837e-b675-4e7c-bafe-b31a006614fd/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "b49c178e-1ffb-4fe6-be1e-b31a00661012",
+   "name": "1983: Portugal à Queima-Roupa",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "1983-portugal-queima-roupa"
+  },
+  "bb16cb92-fa50-4fbd-9c87-b11800f6d4d7": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/bb16cb92-fa50-4fbd-9c87-b11800f6d4d7/113d8e1c-f91b-4b4e-b8c9-b11800fb2760/image.jpg?t=1727430421&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/bb16cb92-fa50-4fbd-9c87-b11800f6d4d7/113d8e1c-f91b-4b4e-b8c9-b11800fb2760/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "bb16cb92-fa50-4fbd-9c87-b11800f6d4d7",
+   "name": "Operação Papagaio",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "opera-o-papagaio"
+  },
+  "f4112c86-ca07-4de5-b311-b29c0073caee": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/f4112c86-ca07-4de5-b311-b29c0073caee/5aa9da56-c18d-4123-824a-b29c0073d080/image.jpg?t=1742647839&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/f4112c86-ca07-4de5-b311-b29c0073caee/5aa9da56-c18d-4123-824a-b29c0073d080/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "f4112c86-ca07-4de5-b311-b29c0073caee",
+   "name": "O Misterioso Engenheiro Jardim",
+   "seeded": true,
+   "signals": [
+    "site"
+   ],
+   "slug": "o-misterioso-engenheiro-jardim"
+  },
+  "fcc429c6-c52e-4355-b2d1-b0000128df72": {
+   "artwork": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/fcc429c6-c52e-4355-b2d1-b0000128df72/e1c32926-ffaf-4789-ab8b-b000013d951c/image.jpg?t=1727430387&size=Large",
+   "feed": "https://www.omnycontent.com/d/playlist/b04d3ae5-22c4-41b6-b20a-aa54000ba759/fcc429c6-c52e-4355-b2d1-b0000128df72/e1c32926-ffaf-4789-ab8b-b000013d951c/podcast.rss",
+   "first_seen": "2026-11-19",
+   "id": "fcc429c6-c52e-4355-b2d1-b0000128df72",
+   "name": "Piratinha do Ar",
+   "seeded": true,
+   "signals": [
+    "site",
+    "omny_text"
+   ],
+   "slug": "piratinha-do-ar"
+  }
+ },
+ "site_misses": 0,
+ "version": 1
+}

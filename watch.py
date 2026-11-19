@@ -364,7 +364,8 @@ def run(state: dict, cache: dict, programs: list[dict], site_slugs: list[str] | 
     for s in classified:
         known = state["series"].get(s["id"])
         if known is None:
-            state["series"][s["id"]] = {**s, "first_seen": today, "seeded": first_run}
+            state["series"][s["id"]] = {**s, "signals": sorted(s["signals"]),
+                                        "first_seen": today, "seeded": first_run}
             if not first_run:
                 new.append(s["name"])
         else:

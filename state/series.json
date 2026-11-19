@@ -23,8 +23,8 @@
    "name": "Os Escândalos de uma Revolucionária",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "os-escndalos-de-uma-revolucionria"
   },
@@ -36,8 +36,8 @@
    "name": "Os Ficheiros do Caso Carlos Castro",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "os-ficheiros-do-caso-carlos-castro"
   },
@@ -49,8 +49,8 @@
    "name": "Os Segredos da Seita do Yoga",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "os-segredos-da-seita-do-yoga"
   },
@@ -74,8 +74,8 @@
    "name": "Um Espião no Kremlin",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "um-espi-o-no-kremlin"
   },
@@ -99,8 +99,8 @@
    "name": "O Sargento na Cela 7",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "o-sargento-na-cela-7"
   },
@@ -112,8 +112,8 @@
    "name": "A Vida Dupla do Espião Traidor",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "a-vida-dupla-do-espio-traidor"
   },
@@ -137,8 +137,8 @@
    "name": "A Eleição Mais Louca de Sempre",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "a-eleio-mais-louca-de-sempre"
   },
@@ -210,8 +210,8 @@
    "name": "Piratinha do Ar",
    "seeded": true,
    "signals": [
-    "site",
-    "omny_text"
+    "omny_text",
+    "site"
    ],
    "slug": "piratinha-do-ar"
   }
